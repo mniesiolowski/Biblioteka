@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<p th:text="'Hello Thymeleaf'" />
+<h1 th:text="#{app.name}"></h1>
+<h1 th:text="#{form.header.add.dirnk}"></h1>
+
+<a th:href="@{/hello}">Panel</a>
+
+</body>
+</html>
