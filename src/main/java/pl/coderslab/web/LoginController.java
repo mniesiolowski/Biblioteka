@@ -35,15 +35,8 @@ public class LoginController {
         return "admin/403";
     }
 
-    //    @RequestMapping(value = {"/add-users"}, method = RequestMethod.GET)
-//    public void createUser() {
-//        User user = new User();
-//        user.setPassword("user");
-//        user.setFirstName("a");
-//        user.setLastName("b");
-//        user.createDefaultUsername();
-//        userService.saveUser(user);
-//    }
+
+
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

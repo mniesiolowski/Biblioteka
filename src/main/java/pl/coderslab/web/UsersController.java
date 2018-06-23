@@ -82,8 +82,6 @@ public class UsersController {
             } catch (Exception e) {
                 return "admin/notfound";
             }
-
-
     }
 
     @GetMapping("/list-user")
