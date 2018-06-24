@@ -77,11 +77,17 @@ public class UsersController {
             return "user/edit";
         } else
             try {
-                saveUser.saveUser(user);
-                return "welcome/start";
+                if(user.getRoles().equals("ADMIN")){
+                    saveUser.saveUser(user);
+                    return "welcome/start";}
+                else
+                    saveUser.saveUser2(user);
+                return "welcome/startworker";
             } catch (Exception e) {
                 return "admin/notfound";
             }
+
+
     }
 
     @GetMapping("/list-user")

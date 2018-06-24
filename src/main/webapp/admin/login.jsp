@@ -28,7 +28,7 @@
                         <div class="msg">${msg}</div>
                     </c:if>
                     <form name='loginForm'
-                          action="<c:url value='j_spring_security_check' />" method="post">
+                          action="<c:url value='/' />" method="get">
                         <fieldset>
                             <div class="form-group">
                                 <input class="form-control" placeholder="Username ..."
