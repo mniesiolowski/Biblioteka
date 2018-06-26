@@ -23,15 +23,17 @@
     <form:input path="psel"/><form:errors path="psel"/><br><br>
     <label for="username">Username</label><br>
     <form:input path="username"/><form:errors path="username"/><br><br>
-    <label for="password">Password</label><br>
-    <form:input path="password"/><form:errors path="password"/><br><br>
     <form:hidden path="id"/>
     <form:hidden path="roles"/>
+    <form:hidden path="password"/>
     <input type="submit" value="Aktualizuj">
 </form:form>
 <form>
     <input type="button" value="Anuluj" onclick="window.location.href='/'" />
 </form>
+    <form>
+        <input type="button" value="Zmien haslo" onclick="window.location.href='/edit-password/u'" />
+    </form>
 </center>
 <jsp:include page="/welcome/footer.jsp"/>
 </body>

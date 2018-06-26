@@ -18,6 +18,7 @@ import pl.coderslab.service.UserService;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 public class UsersController {
@@ -64,7 +65,7 @@ public class UsersController {
     }
 
     @GetMapping("/edit-user/u")
-    public String authorUpdate(Model model, @AuthenticationPrincipal CurrentUser customUser) {
+    public String UserUpdate(Model model, @AuthenticationPrincipal CurrentUser customUser) {
         User entityUser = customUser.getUser();
         //  User user = userRepository.findOne(entityUser.getId());
         model.addAttribute("user", entityUser);
@@ -72,22 +73,47 @@ public class UsersController {
     }
 
     @PostMapping("/edit-user")
-    public String authorUpdateModel(@ModelAttribute @Valid User user, BindingResult result) {
+    public String UserUpdateModel(@ModelAttribute @Valid User user, BindingResult result) {
         if (result.hasErrors()) {
             return "user/edit";
         } else
             try {
-                if(user.getRoles().equals("ADMIN")){
-                    saveUser.saveUser(user);
+
+                if(user.getRoles().stream().anyMatch(role -> role.getName().equals("USER"))){
+                   saveUser.updateUser2(user);
                     return "welcome/start";}
                 else
-                    saveUser.saveUser2(user);
+                    saveUser.updateUser(user);
                 return "welcome/startworker";
             } catch (Exception e) {
                 return "admin/notfound";
             }
 
 
+    }
+    @GetMapping("/edit-password/u")
+    public String passwordUpdate(Model model, @AuthenticationPrincipal CurrentUser customUser) {
+        User entityUser = customUser.getUser();
+        //  User user = userRepository.findOne(entityUser.getId());
+        model.addAttribute("user", entityUser);
+        return "user/password";
+
+    }
+    @PostMapping("/password-user")
+    public String passwordUpdateModel(@ModelAttribute @Valid User user, BindingResult result) {
+        if (result.hasErrors()) {
+            return "password/edit";
+        } else
+            try {
+                if(user.getRoles().stream().anyMatch(role -> role.getName().equals("USER"))){
+                    saveUser.saveUser(user);
+                    return "welcome/start";
+                } else
+                    saveUser.saveUser2(user);
+                return "welcome/startworker";
+            } catch (Exception e) {
+                return "admin/notfound";
+            }
     }
 
     @GetMapping("/list-user")
@@ -122,4 +148,5 @@ public class UsersController {
         return "redirect:/add-user";
 
     }
+
 }

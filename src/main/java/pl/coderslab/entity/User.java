@@ -131,4 +131,5 @@ public class User {
     public void setCheckout(List<Checkout> checkout) {
         this.checkout = checkout;
     }
+
 }

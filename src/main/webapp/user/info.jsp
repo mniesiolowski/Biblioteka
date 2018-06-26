@@ -13,6 +13,7 @@
     <h4><p style="color: orange">Witaj: </p>${user.firstName} ${user.lastName}<br></h4>
     <h4><p style="color: orange">Twoj login: </p>${user.username}<br></h4>
     <h4><p style="color: orange">Twoj ID: </p>${user.id}</h4>
+
     <h2> Twoje rezerwacje </h2>
 
     <table >

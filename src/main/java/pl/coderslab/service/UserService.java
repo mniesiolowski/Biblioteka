@@ -7,4 +7,6 @@ public interface UserService {
 
     void saveUser(User user);
     void saveUser2(User user);
+    void updateUser(User user);
+    void updateUser2(User user);
 }
