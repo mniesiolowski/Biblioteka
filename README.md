@@ -13,10 +13,9 @@ This aplication is a simple CRUD pages that manipulates records for a multiplay 
     
 
 ####Links
-[GitHub]
 
-[LinkedIn]
+   [LinkedIn]
 
 
-[GitHub]: https://github.com/mniesiolowski
+
 [LinkedIn]: https://www.linkedin.com/in/marcin-niesiołowski-784691166/
