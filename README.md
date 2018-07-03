@@ -1,9 +1,9 @@
- ##Biblioteka/Library
+#****Biblioteka/Library****
 
 Web aplication created for small library.
 This aplication is a simple CRUD pages that manipulates records for a multiplay model object.
 
- #####For this aplication i used : 
+ ****For this aplication i used :****
 
     IntelliJ IDEA,
     Spring Boot,
@@ -12,7 +12,7 @@ This aplication is a simple CRUD pages that manipulates records for a multiplay 
     MySQL
     
 
-####Links
+****Links****
 
    [LinkedIn]
 
