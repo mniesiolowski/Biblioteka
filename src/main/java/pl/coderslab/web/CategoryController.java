@@ -15,7 +15,9 @@ import javax.validation.Valid;
 
 @Controller
 public class CategoryController {
-
+        /*
+                Full CRUD for Entity Category
+         */
 
         private final CategoryRepository categoryRepository;
 

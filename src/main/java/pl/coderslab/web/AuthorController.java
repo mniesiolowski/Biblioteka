@@ -15,6 +15,10 @@ import javax.validation.Valid;
 @Controller
 public class AuthorController {
 
+       /*
+                Full CRUD for Entity Author
+         */
+
     private final AuthorRepository authorRepository;
 
     public AuthorController(AuthorRepository authorRepository) {

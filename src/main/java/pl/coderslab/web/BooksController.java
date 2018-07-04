@@ -79,6 +79,7 @@ public class BooksController {
 
     }
 
+    //          List of all books
     @GetMapping("/list-books")
     public String list(Model model) {
         model.addAttribute("books", booksRepository.findAll());
@@ -86,6 +87,7 @@ public class BooksController {
 
     }
 
+    //          List of all books sorted by title
     @GetMapping("/list-books-sort-title")
     public String listsortTitle(Model model) {
         model.addAttribute("books", booksRepository.findAllbyTitle());
@@ -93,30 +95,32 @@ public class BooksController {
 
     }
 
+    //          List of all books sorted by status
     @GetMapping("/list-books-sort-status")
     public String listsortStatus(Model model) {
         model.addAttribute("books", booksRepository.findAllbyStatus());
         return "books/list";
     }
 
+    //          List of all books that are 'Dostepna'
     @GetMapping("/search-books")
     public String search(Model model) {
         model.addAttribute("books", booksRepository.findByStatusId(1L));
         return "books/search";
     }
-
+    //          Controll panel for Admin
     @GetMapping("/adding")
-
     public String controllPanel() {
         return "admin/controll";
     }
 
+    //          List of all books for editions
     @GetMapping("/list-books-edit")
     public String listedit(Model model) {
         model.addAttribute("books", booksRepository.findAll());
         return "books/listedit";
     }
-
+    //      Display full information about one book
     @GetMapping("/show/{id}")
     public String showDescreption(Model model, @PathVariable long id) {
         Books books = booksRepository.findOne(id);

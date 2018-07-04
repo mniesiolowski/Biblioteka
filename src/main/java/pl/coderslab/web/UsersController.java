@@ -41,11 +41,8 @@ public class UsersController {
     List<Role> getAllRoles() {
         return roleRepository.findAll();
     }
-    //     @ModelAttribute("reserved")
-//         List<Reserved> getAllreserved() {return reservedRepository.findAll();
-////     }
-//     @ModelAttribute("checkout")
-//     List<Checkout> getAllCheckouts(){return checkoutRepository.findAll();}
+
+    //      Adding User with role_User
 
     @GetMapping("/add-user")
     public String addUser(Model model) {
@@ -79,10 +76,10 @@ public class UsersController {
         } else
             try {
 
-                if(user.getRoles().stream().anyMatch(role -> role.getName().equals("USER"))){
-                   saveUser.updateUser2(user);
-                    return "welcome/start";}
-                else
+                if (user.getRoles().stream().anyMatch(role -> role.getName().equals("USER"))) {
+                    saveUser.updateUser2(user);
+                    return "welcome/start";
+                } else
                     saveUser.updateUser(user);
                 return "welcome/startworker";
             } catch (Exception e) {
@@ -91,6 +88,7 @@ public class UsersController {
 
 
     }
+
     @GetMapping("/edit-password/u")
     public String passwordUpdate(Model model, @AuthenticationPrincipal CurrentUser customUser) {
         User entityUser = customUser.getUser();
@@ -99,13 +97,14 @@ public class UsersController {
         return "user/password";
 
     }
+
     @PostMapping("/password-user")
     public String passwordUpdateModel(@ModelAttribute @Valid User user, BindingResult result) {
         if (result.hasErrors()) {
             return "password/edit";
         } else
             try {
-                if(user.getRoles().stream().anyMatch(role -> role.getName().equals("USER"))){
+                if (user.getRoles().stream().anyMatch(role -> role.getName().equals("USER"))) {
                     saveUser.saveUser(user);
                     return "welcome/start";
                 } else
@@ -133,6 +132,7 @@ public class UsersController {
         model.addAttribute("checkout", checkout);
         return "user/info";
     }
+    //      Adding User with role_Admin
 
     @GetMapping("/add-worker")
     public String addWorker(Model model) {
